@@ -1,0 +1,149 @@
+@font-face {
+  font-family: IranSans;
+  src: url(./font/IranSans.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: IranSans;
+}
+
+::selection {
+  background-color: #2c4792;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
+  background: radial-gradient(circle at 30% 20%, #232323, #141414 70%);
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+/* چند ذره‌ی تزئینی پس‌زمینه */
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.confetti span {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  opacity: 0.5;
+  background: #d4af37;
+  animation: fall 6s linear infinite;
+}
+@keyframes fall {
+  from {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes boxShadow {
+  from {
+    box-shadow: 0 3px 4px #4d4c4c;
+  }
+  to {
+    box-shadow: 0 3px 15px #353535;
+  }
+}
+.card {
+  width: 340px;
+  height: 460px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  padding: 30px;
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+.front {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.651);
+  background: linear-gradient(160deg, #ffffff, #f2f0ea);
+  color: #1c1c1c;
+  border: 1px solid #e7e2d6;
+}
+
+.front h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.front p {
+  font-size: 15px;
+  color: #55524a;
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+.front button {
+  border: none;
+  padding: 14px 34px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #1c1c1c;
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  animation: boxShadow 1s infinite alternate;
+  transition: all 0.2s ease-in-out;
+}
+
+.front button:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.back {
+  background: linear-gradient(160deg, #1c1c1c, #0d0d0d);
+  color: #fff;
+  box-shadow: 0 25px 60px rgba(107, 106, 106, 0.342);
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.back h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.back p {
+  font-size: 14px;
+  color: #bdbdbd;
+}
