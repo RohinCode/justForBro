@@ -1,14 +1,42 @@
 const card = document.getElementById("card");
 const flipBtn = document.getElementById("flipBtn");
+const front = document.querySelector(".front");
+const back = document.querySelector(".back");
+let number = 0;
 flipBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   card.classList.add("flip");
 });
 card.addEventListener("click", () => {
   if (card.classList.contains("flip")) {
-
-    card.classList.remove("flip");
+    back.innerHTML = `<h1>باز کیر شدی🗿</h1>
+    این دفعه کلیک کن.`;
+    if (number == 1) {
+      back.innerHTML = `<h1>بازم کیر شدی🗿</h1>
+    این دفعه کلیک کن. دفعه‌ی اخرههه`;
   }
+
+  if (number == 2) {
+      back.innerHTML = `<h2>لازمه بگم بازم کیر شدی؟🗿</h2>
+   این دفعه کلیک کن. این دفعه واقعا اخریه.`;
+
+      }
+
+  if (number == 3) {
+      back.innerHTML = `<h2>چرا اعتماد کردی؟</h2>
+    من چندبار کیرت کردم اما تو باز هم کلیک کردی🥹`;
+
+      }
+
+    if (number >= 4) {
+      front.innerHTML = `<h1>نه واقعا بدون شوخی تولدت مبارک🤝</h1>
+        <p>امیدوارم امسال سال بهتری داشته باشی</p>
+        <p>23 شهریور سال 1405</p>`;
+         back.innerHTML = `<h1>پایان</h1>`;
+      card.classList.remove("flip");
+    }
+  }
+  number++
 });
 
 // چند ذره‌ی ساده برای حس جشن
